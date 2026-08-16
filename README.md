@@ -20,18 +20,3 @@ assets/style.css            Gemeinsames Stylesheet
 5. **Branch**: `main`, Ordner `/ (root)` → **Save**.
 6. Nach ca. 1–2 Minuten ist die Seite erreichbar unter:
    `https://<dein-github-username>.github.io/<repo-name>/`
-
-## Vor dem Live-Schalten noch ausfüllen
-
-Alle mit `[…]` markierten Platzhalter in `datenschutz.html` und `nutzungsbedingungen.html` suchen und ersetzen:
-
-- **Datum** (Stand der Dokumente)
-- **MongoDB-Atlas-Region** (steht in deinem Atlas-Dashboard unter *Database → Clusters*)
-- Ggf. **VPS-/Server-Hoster** für den Bot-Prozess selbst
-- **Anwendbares Recht** in den Nutzungsbedingungen
-
-Offen und bewusst ausgelassen: Name und ladungsfähige Anschrift des Verantwortlichen (Impressumspflicht nach § 5 DDG). Das ist rechtlich nicht vollständig — siehe Warnhinweis direkt auf der Datenschutz-Seite. Nachtragen, sobald eine Postfach- oder Geschäftsadresse existiert.
-
-## Danach
-
-Die fertige URL (`https://.../datenschutz.html`) trägst du im Discord Developer Portal unter *"Hast du eine öffentliche Datenschutzerklärung?"* ein.
