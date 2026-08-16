@@ -1,4 +1,5 @@
-# Build main and deploy the successful result to gh-pages
+
+# Deploy the stable website from main to gh-pages
 name: Deploy static content to gh-pages
 
 on:
@@ -6,7 +7,6 @@ on:
     branches:
       - main
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
@@ -17,45 +17,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    name: Build Jekyll site
+  deploy:
+    name: Deploy main to gh-pages
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+      - name: Verify website files
+        run: |
+          echo "Checking website..."
 
-      - name: Build Jekyll site
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs
-          destination: ./_site
+          test -f index.html
+          test -f datenschutz.html
+          test -f nutzungsbedingungen.html
+          test -d assets
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: ./_site
-
-  deploy:
-    name: Deploy to gh-pages
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: github-pages
-          path: ./_site
+          echo "Website files found."
+          echo "Website verification successful."
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
           publish_branch: gh-pages
+          publish_dir: .
+          exclude_assets: |
+            .github
+            .git
+            .gitignore
+            README.md
           force_orphan: false
+
