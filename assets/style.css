@@ -1,0 +1,422 @@
+/* ─────────────────────────────────────────────────────────
+   TheCrazyBot – Legal Docs
+   Token-System: siehe Kommentare unten
+   ───────────────────────────────────────────────────────── */
+
+:root {
+    /* Farben */
+    --bg: #1a1b1e;
+    --surface: #212226;
+    --surface-raised: #292a2f;
+    --border: #35373c;
+    --text: #e6e7ea;
+    --text-muted: #9498a1;
+    --text-faint: #6c7078;
+    --accent: #5865f2;
+    --accent-soft: #8891f7;
+    --accent-dim: #3a4088;
+    --warn: #ed9a45;
+    --warn-bg: #3a2f1c;
+
+    /* Typografie */
+    --font-display: "Space Grotesk", "Segoe UI", sans-serif;
+    --font-body: "Inter", "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+    --content-width: 760px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    background-image:
+        radial-gradient(ellipse 900px 500px at 15% -10%, rgba(88, 101, 242, 0.16), transparent 60%),
+        radial-gradient(ellipse 700px 400px at 100% 0%, rgba(88, 101, 242, 0.08), transparent 55%);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--accent-soft);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+    text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-soft);
+    outline-offset: 2px;
+}
+
+/* ─── Nav ────────────────────────────────────────────────── */
+
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(26, 27, 30, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+}
+
+.brand-mark {
+    color: var(--accent-soft);
+}
+
+.brand:hover {
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.92rem;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--text);
+}
+
+.nav-support {
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid var(--accent-dim);
+    background: rgba(88, 101, 242, 0.12);
+    color: var(--text) !important;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.nav-support:hover {
+    background: rgba(88, 101, 242, 0.22);
+    text-decoration: none !important;
+}
+
+/* ─── Layout ─────────────────────────────────────────────── */
+
+main {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent-soft);
+    background: rgba(88, 101, 242, 0.1);
+    border: 1px solid var(--accent-dim);
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 1.25rem;
+}
+
+.eyebrow::before {
+    content: "●";
+    font-size: 0.55rem;
+    color: var(--accent-soft);
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    margin: 2.5rem 0 0.9rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 5rem;
+}
+
+main > h2:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+h3 {
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    margin: 1.6rem 0 0.6rem;
+    color: var(--text);
+}
+
+p {
+    color: var(--text);
+    margin: 0 0 1rem;
+}
+
+.lede {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 56ch;
+}
+
+.meta {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    margin-bottom: 2.5rem;
+}
+
+/* ─── Karten (Startseite) ───────────────────────────────── */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2.5rem 0;
+}
+
+@media (max-width: 620px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.doc-card {
+    display: block;
+    padding: 1.5rem;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.doc-card:hover,
+.doc-card:focus-visible {
+    border-color: var(--accent-dim);
+    background: var(--surface-raised);
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.doc-card .tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent-soft);
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.doc-card h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.doc-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 0;
+}
+
+.doc-card .arrow {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-size: 0.85rem;
+    color: var(--accent-soft);
+}
+
+.mini-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+/* ─── Rechtstext-Elemente ────────────────────────────────── */
+
+.toc {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.toc-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    margin-bottom: 0.6rem;
+}
+
+.toc ol {
+    margin: 0;
+    padding-left: 1.2rem;
+    columns: 2;
+    column-gap: 1.5rem;
+}
+
+@media (max-width: 560px) {
+    .toc ol {
+        columns: 1;
+    }
+}
+
+.toc li {
+    margin-bottom: 0.35rem;
+    font-size: 0.92rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2rem 0 1.8rem;
+    font-size: 0.88rem;
+}
+
+th, td {
+    text-align: left;
+    padding: 0.55rem 0.7rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+    font-weight: 500;
+}
+
+td {
+    color: var(--text-muted);
+}
+
+ul, ol {
+    color: var(--text);
+    padding-left: 1.3rem;
+}
+
+ul li, ol li {
+    margin-bottom: 0.4rem;
+}
+
+code, .cmd {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    padding: 0.1rem 0.4rem;
+    border-radius: 5px;
+    color: var(--accent-soft);
+}
+
+.callout {
+    display: flex;
+    gap: 0.75rem;
+    background: var(--warn-bg);
+    border: 1px solid #5c451f;
+    border-radius: 10px;
+    padding: 1rem 1.15rem;
+    margin: 1.3rem 0;
+    font-size: 0.92rem;
+}
+
+.callout-icon {
+    flex-shrink: 0;
+}
+
+.callout p {
+    margin: 0;
+    color: #e8d3ae;
+}
+
+.callout p + p {
+    margin-top: 0.5rem;
+}
+
+.placeholder {
+    color: var(--warn);
+    font-style: italic;
+}
+
+blockquote {
+    border-left: 3px solid var(--accent-dim);
+    margin: 1.2rem 0;
+    padding: 0.2rem 0 0.2rem 1rem;
+    color: var(--text-muted);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+
+footer {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--text-faint);
+    font-size: 0.85rem;
+}
+
+footer a {
+    color: var(--text-muted);
+}
+
+.back-top {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}

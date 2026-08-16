@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheCrazyBot – Rechtliches</title>
+    <meta name="description" content="Datenschutzerklärung und Nutzungsbedingungen für TheCrazyBot.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+
+    <nav class="site-nav">
+        <a href="index.html" class="brand"><span class="brand-mark">⌁</span> TheCrazyBot</a>
+        <div class="nav-links">
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+            <a href="https://discord.gg/H9RPzp68Mp" class="nav-support">Support-Server ↗</a>
+            <span class="lang-switch"><a href="index.html" class="active">DE</a><span>/</span><a
+                    href="en/index.html">EN</a></span>
+        </div>
+    </nav>
+
+    <main>
+        <span class="eyebrow">/rechtliches</span>
+        <h1>Was TheCrazyBot mit deinen Daten macht — und was nicht.</h1>
+        <p class="lede">
+            Zwei Dokumente, kein Kleingedrucktes. Beide sind auf dem aktuellen Stand des Bot-Codes
+            und werden direkt in Discord über <code>/privacy</code> ergänzt — nicht nur hier auf der Seite.
+        </p>
+
+        <div class="card-grid">
+            <a href="datenschutz.html" class="doc-card">
+                <span class="tag">Art. 12–20 DSGVO</span>
+                <h3>Datenschutzerklärung</h3>
+                <p>Welche Daten gespeichert werden, warum, wie lange — und wie du sie einsehen oder löschen lässt.</p>
+                <span class="arrow">Lesen →</span>
+            </a>
+            <a href="nutzungsbedingungen.html" class="doc-card">
+                <span class="tag">Nutzungsregeln</span>
+                <h3>Nutzungsbedingungen</h3>
+                <p>Spielregeln für die Nutzung des Bots: virtuelle Währung, Verfügbarkeit, Haftung, Sperrung.</p>
+                <span class="arrow">Lesen →</span>
+            </a>
+        </div>
+
+        <h2 style="border-top:none;padding-top:0;">Direkt in Discord</h2>
+        <p>Auskunft, Export und Löschung deiner Daten brauchen keinen Umweg über diese Seite:</p>
+        <table>
+            <tr>
+                <th>Befehl</th>
+                <th>Was er macht</th>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy view-my-data</span></td>
+                <td>Zeigt und exportiert alle deine gespeicherten Daten (Art. 15/20 DSGVO)</td>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy delete-my-data</span></td>
+                <td>Löscht dein Nutzerprofil unwiderruflich, mit Bestätigungs-Button (Art. 17 DSGVO)</td>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy view-server-data</span></td>
+                <td>Server-Owner: Übersicht aller Bot-Daten des Servers</td>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy delete-server-data</span></td>
+                <td>Server-Owner: löscht alle Bot-Daten des Servers unwiderruflich</td>
+            </tr>
+        </table>
+
+        <div class="mini-links">
+            <a href="mailto:thecrazybot.ml@gmail.com">✉ thecrazybot.ml@gmail.com</a>
+            <a href="https://discord.gg/H9RPzp68Mp">💬 Support-Server</a>
+        </div>
+    </main>
+
+    <footer>
+        <span>© <span id="year"></span> TheCrazyBot</span>
+        <span><a href="datenschutz.html">Datenschutz</a> · <a
+                href="nutzungsbedingungen.html">Nutzungsbedingungen</a></span>
+    </footer>
+
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

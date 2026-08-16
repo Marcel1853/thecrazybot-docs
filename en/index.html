@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheCrazyBot – Legal</title>
+    <meta name="description" content="Privacy Policy and Terms of Service for TheCrazyBot.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+
+    <nav class="site-nav">
+        <a href="index.html" class="brand"><span class="brand-mark">⌁</span> TheCrazyBot</a>
+        <div class="nav-links">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="https://discord.gg/H9RPzp68Mp" class="nav-support">Support Server ↗</a>
+            <span class="lang-switch"><a href="../index.html">DE</a><span>/</span><a href="index.html"
+                    class="active">EN</a></span>
+        </div>
+    </nav>
+
+    <main>
+        <span class="eyebrow">/legal</span>
+        <h1>What TheCrazyBot does with your data — and what it doesn't.</h1>
+        <p class="lede">
+            Two documents, no fine print. Both reflect the current state of the bot's code and are
+            complemented directly in Discord via <code>/privacy</code> — not just here on the page.
+        </p>
+
+        <div class="card-grid">
+            <a href="privacy.html" class="doc-card">
+                <span class="tag">GDPR Art. 12–20</span>
+                <h3>Privacy Policy</h3>
+                <p>What data is stored, why, for how long — and how to view or delete it.</p>
+                <span class="arrow">Read →</span>
+            </a>
+            <a href="terms.html" class="doc-card">
+                <span class="tag">Usage rules</span>
+                <h3>Terms of Service</h3>
+                <p>Rules for using the bot: virtual currency, availability, liability, blocking.</p>
+                <span class="arrow">Read →</span>
+            </a>
+        </div>
+
+        <h2 style="border-top:none;padding-top:0;">Directly in Discord</h2>
+        <p>Access, export, and deletion of your data don't require a detour through this page:</p>
+        <table>
+            <tr>
+                <th>Command</th>
+                <th>What it does</th>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy view-my-data</span></td>
+                <td>Shows and exports all data we store about you (GDPR Art. 15/20)</td>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy delete-my-data</span></td>
+                <td>Permanently deletes your user profile, with a confirmation button (GDPR Art. 17)</td>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy view-server-data</span></td>
+                <td>Server owners: overview of all bot data for the server</td>
+            </tr>
+            <tr>
+                <td><span class="cmd">/privacy delete-server-data</span></td>
+                <td>Server owners: permanently deletes all bot data for the server</td>
+            </tr>
+        </table>
+
+        <div class="mini-links">
+            <a href="mailto:thecrazybot.ml@gmail.com">✉ thecrazybot.ml@gmail.com</a>
+            <a href="https://discord.gg/H9RPzp68Mp">💬 Support Server</a>
+        </div>
+    </main>
+
+    <footer>
+        <span>© <span id="year"></span> TheCrazyBot</span>
+        <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms of Service</a></span>
+    </footer>
+
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
