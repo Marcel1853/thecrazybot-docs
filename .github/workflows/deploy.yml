@@ -1,4 +1,4 @@
-```yaml
+
 name: Deploy to GitHub Pages
 
 on:
@@ -75,4 +75,3 @@ jobs:
           publish_branch: gh-pages
           publish_dir: ./dist
           force_orphan: false
-```
