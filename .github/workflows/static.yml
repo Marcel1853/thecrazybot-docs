@@ -30,8 +30,11 @@ jobs:
 
       - name: Verify required files
         run: |
-          for f in zeppelin-generator.html styles.css index.js; do
-            [ -f "$f" ] || { echo "Missing: $f"; exit 1; }
+          for f in index.html datenschutz.html nutzungsbedingungen.html; do
+            [ -f "$f" ] || {
+              echo "Missing: $f"
+              exit 1
+            }
           done
 
           [ -d "assets" ] || {
@@ -54,22 +57,20 @@ jobs:
       - name: Prepare website
         run: |
           mkdir -p dist
-          cp *.html *.css *.js dist/
-          cp dist/zeppelin-generator.html dist/index.html
+
+          cp index.html dist/
+          cp datenschutz.html dist/
+          cp nutzungsbedingungen.html dist/
+
+          cp -r assets dist/
+
+          echo "Website prepared:"
+          find dist -type f
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    if: github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
+          force_orphan: false
