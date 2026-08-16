@@ -1,14 +1,6 @@
 name: Deploy to GitHub Pages
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '**.html'
-      - '**.css'
-      - '**.js'
-      - '.github/workflows/deploy.yml'
   push:
     branches:
       - main
@@ -16,13 +8,13 @@ on:
       - '**.html'
       - '**.css'
       - '**.js'
+      - 'assets/**'
       - '.github/workflows/deploy.yml'
+
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
   group: pages
@@ -30,35 +22,43 @@ concurrency:
 
 jobs:
   checks:
+    name: Check website
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v6
 
       - name: Verify required files
         run: |
-          for f in index.html styles.css index.js; do
+          for f in zeppelin-generator.html styles.css index.js; do
             [ -f "$f" ] || { echo "Missing: $f"; exit 1; }
           done
+
+          [ -d "assets" ] || {
+            echo "Missing: assets directory"
+            exit 1
+          }
+
           echo "All required files present."
 
-  build:
+  deploy:
+    name: Deploy main to gh-pages
     needs: checks
-    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Collect static assets
+      - name: Prepare website
         run: |
           mkdir -p dist
           cp *.html *.css *.js dist/
-          cp  dist/index.html
+          cp dist/zeppelin-generator.html dist/index.html
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           path: dist
 
