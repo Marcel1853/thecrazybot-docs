@@ -36,7 +36,7 @@ jobs:
 
       - name: Verify required files
         run: |
-          for f in zeppelin-generator.html styles.css index.js; do
+          for f in index.html styles.css index.js; do
             [ -f "$f" ] || { echo "Missing: $f"; exit 1; }
           done
           echo "All required files present."
