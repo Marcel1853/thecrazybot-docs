@@ -1,0 +1,78 @@
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.html'
+      - '**.css'
+      - '**.js'
+      - 'assets/**'
+      - '.github/workflows/deploy.yml'
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    name: Check website
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Verify required files
+        run: |
+          for f in index.html datenschutz.html nutzungsbedingungen.html; do
+            [ -f "$f" ] || {
+              echo "Missing: $f"
+              exit 1
+            }
+          done
+
+          [ -d "assets" ] || {
+            echo "Missing: assets directory"
+            exit 1
+          }
+
+          echo "All required files present."
+
+  deploy:
+    name: Deploy main to gh-pages
+    needs: checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Prepare website
+        run: |
+          mkdir -p dist
+
+          cp index.html dist/
+          cp datenschutz.html dist/
+          cp nutzungsbedingungen.html dist/
+
+          cp -r assets dist/
+
+          echo "Website prepared:"
+          find dist -type f
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./dist
+          force_orphan: false
+```
