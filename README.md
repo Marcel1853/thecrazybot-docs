@@ -1,22 +1,51 @@
 # TheCrazyBot – Rechtliches
 
-Statische Webseite mit Datenschutzerklärung und Nutzungsbedingungen für TheCrazyBot, gedacht zum Hosten via GitHub Pages.
+Dieses Repository enthält die Datenschutzerklärung und die Nutzungsbedingungen für die Discord-App **TheCrazyBot**, veröffentlicht als statische Webseite auf GitHub Pages.
 
-## Struktur
+🔗 **Live:** https://marcel1853.github.io/thecrazybot-docs/
+🇩🇪 Deutsch (Standard) · 🇬🇧 [English](https://marcel1853.github.io/thecrazybot-docs/en/)
 
-```
-index.html                 Startseite mit Links zu beiden Dokumenten
-datenschutz.html            Datenschutzerklärung
-nutzungsbedingungen.html    Nutzungsbedingungen
-assets/style.css            Gemeinsames Stylesheet
-```
+## Worum geht's
 
-## In GitHub Pages veröffentlichen
+TheCrazyBot ist eine Multi-Feature-Discord-App (Moderation, Ticket-System, Leveling, Economy, temporäre Sprachkanäle u. a.). Diese Seite dokumentiert transparent, welche Nutzerdaten die App verarbeitet, zu welchem Zweck, und wie Nutzer ihre Rechte nach der DSGVO wahrnehmen können – unter anderem direkt über den `/privacy`-Slash-Command in der App selbst (Auskunft, Export, Löschung).
 
-1. Neues **öffentliches** Repo auf GitHub erstellen (z. B. `thecrazybot-docs`).
-2. Diese Dateien 1:1 ins Repo-Root pushen (nicht in einen Unterordner, außer du passt die Pfade in den HTML-Dateien an).
-3. Im Repo zu **Settings → Pages** gehen.
-4. Unter **Build and deployment** → **Source**: `Deploy from a branch` wählen.
-5. **Branch**: `main`, Ordner `/ (root)` → **Save**.
-6. Nach ca. 1–2 Minuten ist die Seite erreichbar unter:
-   `https://<dein-github-username>.github.io/<repo-name>/`
+Die Inhalte sind bewusst kein generischer Rechtstext, sondern spiegeln die tatsächlichen Funktionen und Datenmodelle des App-Codes wider.
+
+## Seitenstruktur
+
+| Datei | Inhalt |
+|---|---|
+| `index.html` | Startseite (DE) |
+| `datenschutz.html` | Datenschutzerklärung (DE) |
+| `nutzungsbedingungen.html` | Nutzungsbedingungen (DE) |
+| `en/index.html` | Landing page (EN) |
+| `en/privacy.html` | Privacy Policy (EN) |
+| `en/terms.html` | Terms of Service (EN) |
+| `assets/css/style.css` | Gemeinsames Stylesheet für alle Seiten |
+| `.github/workflows/deploy.yml` | CI/CD-Pipeline für GitHub Pages |
+
+Reines HTML/CSS, kein Build-Schritt, keine Abhängigkeiten – jede Seite ist direkt im Browser lauffähig.
+
+## Wie es deployt wird
+
+Ein GitHub-Actions-Workflow (`.github/workflows/deploy.yml`) läuft bei jedem Push auf `main`:
+
+1. **Check-Job** – prüft, ob alle Pflichtseiten (DE + EN) und der `assets/`-Ordner vorhanden sind. Bricht bei fehlenden Dateien ab, bevor irgendetwas deployt wird.
+2. **Deploy-Job** – kopiert die HTML-Seiten, `assets/` und `en/` in einen `dist/`-Ordner und veröffentlicht ihn auf dem Branch `gh-pages`.
+
+GitHub Pages muss dafür in den Repo-Einstellungen auf **Source: Deploy from a branch → `gh-pages` → `/ (root)`** stehen.
+
+## Für eigene Projekte nachnutzen
+
+Wer diese Struktur für eine eigene App/eigene Seite übernehmen möchte:
+
+1. Repo forken oder als Vorlage nutzen.
+2. In den HTML-Dateien App-Name, Befehle, Kontaktdaten und die Datentabellen in Abschnitt 3 der Datenschutzerklärung anpassen.
+3. Farben/Schriften lassen sich zentral über die CSS-Variablen am Anfang von `assets/css/style.css` ändern.
+4. `README.md` und Workflow-Datei können unverändert übernommen werden.
+
+## Rechtlicher Hinweis
+
+Die Texte sind auf Basis der tatsächlichen App-Funktionen erstellt, ersetzen aber keine individuelle Rechtsberatung. Bei eigener Nutzung sollten sie an die jeweilige Situation angepasst und im Zweifel juristisch geprüft werden.
+
+Der Verantwortliche gemäß Abschnitt 1 der Datenschutzerklärung ergänzt Name und ladungsfähige Anschrift zu einem späteren Zeitpunkt.
