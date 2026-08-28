@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Ticket Transcript</title>
+<style>
+:root {
+    --bg-main: #313338;
+    --bg-card: #2b2d31;
+    --bg-hover: #35373c;
+    --text-main: #dbdee1;
+    --text-muted: #949ba4;
+    --accent: #00a8fc;
+    --border: #3f4147;
+}
+
+body {
+    background: var(--bg-main);
+    color: var(--text-main);
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 24px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.header {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 16px 18px;
+    line-height: 1.6;
+}
+
+.header strong {
+    color: #ffffff;
+}
+
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+}
+
+.message {
+    display: flex;
+    gap: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+
+.message:hover {
+    background: var(--bg-hover);
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #1e1f22;
+    flex-shrink: 0;
+}
+
+.content {
+    flex: 1;
+}
+
+.meta {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.username {
+    font-weight: 600;
+    color: #f2f3f5;
+}
+
+.timestamp {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.text {
+    margin-top: 2px;
+    white-space: pre-wrap;
+    line-height: 1.45;
+}
+
+.attachments {
+    margin-top: 6px;
+}
+
+.attachment {
+    background: #1e1f22;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 16px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <strong>Ticket-ID:</strong> ticket-1787951304773-7809<br>
+        <strong>Erstellt von:</strong> marcel1853 (347428030206967809)<br>
+        <strong>Kategorie:</strong> test<br>
+        <strong>Status:</strong> closed<br>
+        <strong>Erstellt:</strong> 2026-08-28T21:08:25.564Z<br>
+        
+        <strong>Geschlossen:</strong> 2026-08-28T21:10:33.902Z<br>
+        <strong>Nachrichten:</strong> 2
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="message">
+        <img class="avatar" src="https://cdn.discordapp.com/avatars/347428030206967809/9443d523bbbb5b3f8b64131e83a080cf.webp?size=64">
+        <div class="content">
+            <div class="meta">
+                <span class="username">marcel1853</span>
+                <span class="timestamp">8/28/2026, 11:08:39 PM</span>
+            </div>
+            <div class="text">das ist ein test</div>
+            
+        </div>
+    </div>
+
+    <div class="message">
+        <img class="avatar" src="https://cdn.discordapp.com/avatars/347428030206967809/9443d523bbbb5b3f8b64131e83a080cf.webp?size=64">
+        <div class="content">
+            <div class="meta">
+                <span class="username">marcel1853</span>
+                <span class="timestamp">8/28/2026, 11:08:46 PM</span>
+            </div>
+            <div class="text">ja na test</div>
+            
+        </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="footer">Ende des Transcripts</div>
+</div>
+
+</body>
+</html>
